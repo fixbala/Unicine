@@ -1,0 +1,276 @@
+@api = https://jsonplaceholder.typicode.com 
+
+### Obteniendo todas las publicaciones
+{{api}}/posts
+
+### Obteniendo una sola publicación
+GET {{api}}/posts/1
+
+### Creando una nueva publicación
+POST {{api}}/posts
+Content-Type: application/json
+
+{
+    "title": "vs code",
+    "body": "Cuerpo del mensaje"
+}
+
+### Eliminando publicación
+DELETE {{api}}/posts/1
+
+### Actualizar publicación por id
+PUT {{api}}/posts/1
+Content-Type: application/json
+
+{
+    "title": "Actualización",
+    "body": "Actualizando bloque de código"
+}
+
+// ----------------------------------------- Rest Client ---------------------------------------------->>
+@apiRest = http://localhost:8080
+
+###
+# @name VARIABLES
+@authToken = {{login.response.body.access_token}}
+@tokenType = {{login.response.body.token_type}}
+
+### Creando cliente
+POST {{apiRest}}/auth/register
+Content-Type: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+{
+    "id" : 1,
+    "label" : "Cliente",
+    "cedula" : "567567",
+    "imagenPerfil" : "urlImagen",
+    "nombreCompleto" : "Felipe Hernandez",
+    "email": "yjospinap@uqvirtual.edu.co",
+    "contrasena" : "1234567",
+    "membresia" : 1,
+    "estado" : 1
+}
+
+### Creando cliente
+POST {{apiRest}}/auth/register
+Content-Type: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+{
+    "id" : 1,
+    "label" : "Cliente",
+    "cedula" : "567567",
+    "imagenPerfil" : "urlImagen",
+    "nombreCompleto" : "Felipe Hernandez",
+    "email": "jessjo.324@gmail.com",
+    "contrasena" : "1234567",
+    "membresia" : 1,
+    "estado" : 1
+}
+
+### Autenticación
+GET {{apiRest}}/auth/login/felipe@gmail.com/1234567
+Content-Type: application/json
+
+{
+    "email": "felipe@gmail.com",
+    "contrasena" : "1234567",
+}
+
+### Autenticación administrador
+# @name login
+GET {{apiRest}}/auth/login/admin6@gmail.com/123
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+### Autenticación cliente
+# @name login
+GET {{apiRest}}/auth/login/correo@gmail.com/123
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+### Autenticación cliente
+GET {{apiRest}}/auth/login/correo2@gmail.com/123
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+
+### Autenticación administrador teatro
+GET {{apiRest}}/auth/login/admin6@gmail.com/123
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic YWRtaW4yQGdtYWlsLmNvbToxMjM=
+
+
+### Autenticación
+GET {{apiRest}}/auth
+Content-Type: application/json
+
+{
+    "email": "asfas@sdfasf.com",
+    "contrasena" : "sfdasfdasf",
+}
+
+### @Name Obtener ciudad
+GET {{apiRest}}/obtener-ciudad/1
+
+###
+GET {{apiRest}}/detalle-usuarios
+Content-Type: application/json
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZsrL6qcV11Ii1jqLhxRhWA/ztxi3nmQcdEDWW8tVMFiLIs2Killbpt7W96F275HwxycM2CLuYOWCp+EdhRw5SLLfe3pGz3ANzRGaXdzcq5u6A5DRqwK3u7iPJLrj76acO45lh7DUihWJqH3Pgeqx0VY
+
+###
+GET {{apiRest}}/lista-ciudades
+Content-Type: application/json
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZtPonn2uJKgYC7a7NrIFMYMf7/+u/0PFe/3tr5xTjdBP4wvwglS/v/X8Zxhxv3iXu1xyMcgc0sIzWToTTCJdTi1qfUHRRpB3LM9SBDyiXnYY7Vz22KKFHLl6vlkIV5/do/JYUsX3IQCT9GbKR+yP+hv
+
+### Obtener usuario por cédula
+GET {{apiRest}}/detalle-usuario/2432343425
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJ4rh8wCMREADC2oxzsRbPeLrs1pcoFdbZmx5d3VNyFBFJCUd58RCGmM6ODI7amoWa5UkyGaNfJ75vaJujXxIZhWAgUIdfElzC3/w6H2qUSyD3dA0fsu1vfw4LcEQClA4f3CxNrLkOE73zhFuA13PUXiIokxlmhgG+NwUUVZj/L0prvZcBm+1L79UU/wKfctO9Ec7LNpBYAHzmQ3mVjrl8u
+
+### Eliminar usuario
+DELETE {{apiRest}}/delete/kjhlkjhlkhlk
+
+### Actualizar usuario
+PUT {{apiRest}}/update
+Content-Type: application/json
+
+{
+    "cedula" : "12345",
+    "id" : 1,
+    "label" : "Cliente",
+    "imagenPerfil" : "urlImagen",
+    "nombreCompleto" : "Juan Sebastian",
+    "email": "JuanS@gmail.com",
+    "contrasena" : "1234567"
+}
+
+###
+PUT {{apiRest}}/update
+Content-Type: application/json
+
+{
+    "id" : 1,
+    "label" : "Cliente",
+    "cedula" : "12347",
+    "imagenPerfil" : "urlImagen",
+    "nombreCompleto" : "Sara Hernandez",
+    "email": "Sarha@gmail.com",
+    "contrasena" : "1234567",
+    "membresia" : false,
+    "estado" : false
+}
+
+
+
+// --------------------------------------------------------------------------------------------------\\
+
+// ----------------------------------------- Rest Administrator ---------------------------------------------->>
+### Obtener la lista de la confiteria
+GET {{apiRest}}/lista-confiteria
+
+### Lista Peliculas
+GET {{apiRest}}/lista-peliculas
+Authorization: Bearer $2a$10$kCgF9Jo78qisrRePG58Hx..RxWhHEHQXtN0qRcg0JtGPVWZSPXJIq
+
+### Creando pelicula
+POST {{apiRest}}/crear-pelicula
+Content-Type: application/json
+
+{
+    "idPelicula": 0,
+    "nombre" : "Titanic",
+    "imagen" : "UrlImgen",
+    "trailer" : "Trailer",
+    "genero" : "Comedia",
+    "sinopsis" : "BALABAL",
+    "reparto" : "dos",
+    "estadoPelicula" : "CARTELERA"
+}
+
+### Actualizar película
+PUT {{apiRest}}/actualizar-pelicula
+Content-Type: application/json
+
+{
+    "idPelicula": 1,
+    "nombre" : "Titanic",
+    "imagen" : "UrlImgen",
+    "trailer" : "Trailer",
+    "genero" : "Comedia",
+    "sinopsis" : "Barco",
+    "reparto" : "dos",
+    "estadoPelicula" : "PREVENTA"
+}
+
+### Obtener pelicula
+GET {{apiRest}}/detalle-pelicula/2
+
+### Eliminar pelicula
+DELETE {{apiRest}}/eliminar-pelicula/2
+
+### Lista Teatros
+GET {{apiRest}}/lista-teatros
+
+### Lista Confiterías
+GET {{apiRest}}/lista-confiteria
+
+
+### Obtener la lista de los cupones
+GET {{apiRest}}/lista-cupones
+
+
+
+// --------------------------------------------------------------------------------------------------\\
+
+// ----------------------------------------- Rest Administrator Teatro ---------------------------------------------->>
+### Obtener la lista de los horarios
+GET {{apiRest}}/lista-horarios
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJUXdNh9MSsQ4DJV/v4UB6tBTn4Y/EN0x1xjz8DluQFKkEvzafnB8vm0V1dbqLLFh7YCWqZG2/+8U9YiaBgcq7l+hB358SHvT+mMyTjWAGFExgxFk3M2fWddAkZoEJiMjwM3/r8AEO+YbVNdKdYkmkXhqqaph/x9v2/UUqQvHW/tOcdVb17lTZidEOFECNEPiYZreYE1KnV2jBaIowo62hY
+
+### Obtener la lista de las salas
+GET {{apiRest}}/lista-salas
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJUXdNh9MSsQ4DJV/v4UB6tBTn4Y/EN0x1xjz8DluQFKkEvzafnB8vm0V1dbqLLFh7wE0byRWzpuQooVlB6q9aoQdap0btzgSzTHXt5Yc443J3cUT3bQrVb2v+dn88ZQU/nRG23hmkh9aYW5gaMqHgd8jDPvOmmtpqq0GmRDY46Il7K3AyB6BYEU+XyTK7gb6iL8IoPSvJvXNe/+hl96hq9
+
+### Obtener la lista de las sillas
+GET {{apiRest}}/lista-distribucion-sillas
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJUXdNh9MSsQ4DJV/v4UB6tBTn4Y/EN0x1xjz8DluQFKkEvzafnB8vm0V1dbqLLFh5AeL55x8GZc9sgiwM5WcC7E542cA9DRY4JbaW8Cd4Rf0etW3SGvxap3IZ3o3br+lCyk1/rQjINl5fsoRrc4n70f5BZp53gzA8zCPKt+4G/JH6U73KwIm6vRy7OvmvGAEKuRrTi3fTlRAI/P4xn59dI
+
+
+### Distribución sillas sala
+GET {{apiRest}}/obtener-distribucion-sillas-sala/1
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJUXdNh9MSsQ4DJV/v4UB6tBTn4Y/EN0x1xjz8DluQFKkEvzafnB8vm0V1dbqLLFh7wE0byRWzpuQooVlB6q9aoQdap0btzgSzTHXt5Yc443J3cUT3bQrVb2v+dn88ZQU/nRG23hmkh9aYW5gaMqHgd8jDPvOmmtpqq0GmRDY46Il7K3AyB6BYEU+XyTK7gb6iL8IoPSvJvXNe/+hl96hq9
+
+### Lista funciones
+GET {{apiRest}}/lista-funciones
+Authorization: {{tokenType}} {{authToken}}
+
+// ------------------------------------------------------------------------------------------------------------------\\
+
+// ----------------------------------------- Rest Cliente  ---------------------------------------------->>
+### Funciones película 
+GET {{apiRest}}/obtener-funciones-pelicula/6
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZsjG+jwJ26rGLtywe+jXk4jJldnh95fl5DVh71ekfjnb1KOgwD3px6PiWnixF/H63FvP5F2mQThlPYFyPhO7QKakg+1JaoKBrBvaWE+dftygyHYBNEXvCW9J5TLgDM4RM4W1OzcFL7FsY1tz39kkgg7
+
+### Validar membresía
+GET {{apiRest}}/validar-membresia/correo@gmail.com/123
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZtJpy3G7ys+JbdxXPu/NnhV1vW51/o2C1yesgNjKdeOOeC9Zzng/I4x5VbDgeBvgeIsDBFSZcohG1sQEGo77RQ5tySuUCyMzhpy9/1wCBlD82ikG84rwNkP8RT7EW0pbqNBx5U2uDpZpIL7MZf6T8tw
+
+### Obtener 
+GET {{apiRest}}/lista-pqrs
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZs9GvCSoaLQ7rRjWTldD4nczBd3E3n0sRsPslO0U2vS9EYagEtvKXw4TMdrs5LM1Y2VR8zsDCuUYYUSBR8WwEftHCB2I0fk0quLlrZo2LfJnETgEZYbWGorX70tmItCSRJP8khxPL/gh5IhP80UZSHY
+
+### Obtener compras cliente
+GET {{apiRest}}/historial-compras/correo@gmail.com
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJMaMuaSeEDJfjX4jrOE2UG96fDQYm14fcRivWAzf5m5p67Le9gUPe6piBxxiqsJZseaC012FEPcYtBfRi67Iyu8omKRGlHbPX++wTSKsX7x8pQTY97sodotgFP4cUxpE6sPcnWDMIUIJKR+Nqh96866m8YFQNU4N1nCCsdnLBiMABRWqgZZHLykzcpQRN6tIzqGHmsi1Hq2HCVLKt3KE00
+
+### Obtener 
+GET {{apiRest}}/lista-funciones-sala
+Authorization: Bearer Mp9ox0pHtshkmgptH/c3xA9yEOqhLONVyeiStw8l5OJUXdNh9MSsQ4DJV/v4UB6tBTn4Y/EN0x1xjz8DluQFKkEvzafnB8vm0V1dbqLLFh6huXH+jYR131pibt7HLmhgQiRUTupHKUVUS2u4uA5k/l4/5vAWnQCBK3P2LA3a1rR/bR+q+bs+yPMKURW7nNvJwqE5hFI9Z9cDzqp/p9FxCbNJsFPeMWBPJE+zx1tYFIm52nqhSyvxBa3WmmrlxQ5Z
+
+
+// ------------------------------------------------------------------------------------------------------------------\\
